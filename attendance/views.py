@@ -53,10 +53,13 @@ def Register(request):
                 email = request.POST.get('email')
                 # print("ok")
                 if password == confirm_password:
+                    # print("ok")
                     user = User(
-                        full_name= full_name,
+                        username = email,
                         email = email,
+                        full_name= full_name,
                     )
+                    print("ok")
                     user.set_password(password)
                     user.save()
                     return redirect('login')
