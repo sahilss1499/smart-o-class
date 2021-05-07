@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Login page</h1>
+<div class="jumbotron">
+    <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        {{form.as_p}}
+
+        <input type="submit" class='btn btn-primary' value="Login" />
+    </form>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Register page</h1>
+<div class="jumbotron">
+    {% if form.errors %}
+    <p>Passwords didnt match</p>
+    {% endif %}
+    <form method="POST" action="{% url 'register' %}">
+        {% csrf_token %}
+        {{form.as_p}}
+
+        <input type="submit" class='btn btn-primary' value="Register" />
+    </form>
+  </div>
+
+{% endblock %}
