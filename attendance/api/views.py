@@ -12,6 +12,9 @@ from rest_framework.generics import ListAPIView
 from django.utils import timezone
 import datetime
 
+import json
+import requests
+
 
 class LoginView(APIView):
     permission_classes = (permissions.AllowAny,)
@@ -50,9 +53,20 @@ class TakeAttendance(APIView):
                 token_list_item["token3"]=receiver.token3
                 token_list.append(token_list_item)
             
+
+            headers={
+                'content-type' : 'application/json'
+            }
+
+            body={
+                "students": token_list
+            }
+
+            r = requests.post('http://localhost:3000/trigger',headers=headers,data=body)
+
             serializer.save()
 
-            return Response({"students": token_list}, status=status.HTTP_201_CREATED)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
