@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="centerstage">
+    {% for date in dates %}
+    <div class="post">
+        <!-- |date:"Y-m-d" for changing the format of date -->
+      <h3><a href="{% url 'attendance_response_list' val=date%}" class="loader">Attendance of: {{date}}</a></h3>
+
+      </div>
+  
+    </div>
+    {% endfor %}
+  </div>
+
+
+{% endblock %}

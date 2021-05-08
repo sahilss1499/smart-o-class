@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="centerstage">
+    <h1>Attendance Percentage</h1><br>
+    {% for email,count in attendance_count.items %}
+    <div class="post">
+      <h3>{{ email }}  :  {{ count }}</h3>
+        <br>
+      </div>
+  
+    </div>
+    {% endfor %}
+  </div>
+
+
+
+{% endblock %}

@@ -34,6 +34,10 @@
             <li><a class='navbar-brand bigbrand'href="{% url 'index' %}">Attendance web app</a></li>
             <li><a class='navbar-brand bigbrand'href="{% url 'login' %}">LOGIN</a></li>
             <li><a class='navbar-brand bigbrand'href="{% url 'register' %}">REGISTER</a></li>
+            {%if user.is_authenticated %}
+            <li><a class='navbar-brand bigbrand'href="{% url 'logout' %}">LOGOUT</a></li>
+            <li><a class='navbar-brand bigbrand'href="{% url 'batch_list' %}">BATCHES</a></li>
+            {% endif %}
 
        </ul>
       </div>

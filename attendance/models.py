@@ -42,3 +42,6 @@ class AttendanceResponse(models.Model):
     name = models.CharField(max_length=200, blank=True,null=True)
     attendance_request = models.ForeignKey(AttendanceRequest,on_delete=models.CASCADE, related_name='attendance_request_name')
     created_at = models.DateTimeField(auto_now_add=True, auto_now=False)
+
+    class Meta:
+        unique_together = ('email','attendance_request')

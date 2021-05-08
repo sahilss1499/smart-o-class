@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="centerstage">
+    <!-- When we make a list view the default name given is modelname_list automatically -->
+    {% for batch in batch_list %}
+    <div class="post">
+      
+      <h1><a href="{% url 'batch_attendance' pk=batch.id %}" class="loader">{{ batch.name }}</a></h1>
+      <div class="date"><p class="loader">Created On: {{ batch.created_at|date:"Y-m-d"}}</p>
+      </div>
+  
+    </div>
+    {% endfor %}
+  </div>
+
+{% endblock %}
