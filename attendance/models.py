@@ -59,4 +59,4 @@ class NotificationDetail(models.Model):
     token3 = models.CharField(max_length=1500)
 
     def __str__(self):
-        self.email
+        return self.email

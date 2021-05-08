@@ -1,4 +1,5 @@
-from attendance.models import (User, AttendanceRequest, AttendanceResponse, Batch)
+from attendance.models import (User, AttendanceRequest, AttendanceResponse, Batch,
+                                NotificationDetail,)
 
 from django.contrib.auth.models import auth
 
@@ -53,4 +54,9 @@ class TakeAttendanceSerializer(serializers.ModelSerializer):
 class AttendanceResponseSerializer(serializers.ModelSerializer):
     class Meta:
         model = AttendanceResponse
+        fields = ('__all__')
+
+class NotificationObjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = NotificationDetail
         fields = ('__all__')

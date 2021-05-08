@@ -1,7 +1,8 @@
 from django.contrib.auth import authenticate, login, logout
 
 from attendance.models import (User, AttendanceRequest, AttendanceResponse, Batch, NotificationDetail)
-from .serializers import (LoginSerializer, TakeAttendanceSerializer, AttendanceResponseSerializer)
+from .serializers import (LoginSerializer, TakeAttendanceSerializer, AttendanceResponseSerializer,
+                            NotificationObjectSerializer,)
 
 from rest_framework import permissions, status
 from rest_framework.response import Response
@@ -69,4 +70,27 @@ class StudentAttendanceResponse(APIView):
         
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
+class CreateNotificationObject(APIView):
+    permission_classes = (permissions.AllowAny,)
+    serializer_class = NotificationObjectSerializer
+
+    def post(self,request, format=None):
+        serializer = NotificationObjectSerializer(data=request.data)
+        try:
+            obj = NotificationDetail.objects.get(email=request.data['email'])
+            if obj is not None:
+                obj.meet_link = request.data['meet_link']
+                obj.token1 = request.data['token1']
+                obj.token2 = request.data['token2']
+                obj.token3 = request.data['token3']
+                obj.save()
+                return Response('Updated', status=status.HTTP_201_CREATED)
+
+        except:
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+        
+        return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
