@@ -49,3 +49,8 @@ class TakeAttendanceSerializer(serializers.ModelSerializer):
     class Meta:
         model = AttendanceRequest
         fields = ('__all__')
+
+class AttendanceResponseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AttendanceResponse
+        fields = ('__all__')
