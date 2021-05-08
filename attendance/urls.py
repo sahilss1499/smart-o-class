@@ -20,5 +20,6 @@ urlpatterns = [
     path('batches',BatchListView.as_view(), name='batch_list'),
     path('batches/<int:pk>',BatchAttendance,name='batch_attendance'),
     path('batches/<slug:val>',AttendanceResponseList, name='attendance_response_list'),
+    path('create-batch', CreateBatch, name='create_batch')
     # path('batches/<int:pk>/<int:day>/<int:month>/<int:year>',AttendanceResponseList, name='attendance_response_list'),
 ]

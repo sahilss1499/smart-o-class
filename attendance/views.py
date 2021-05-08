@@ -3,7 +3,7 @@ from datetime import datetime, date
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
-from .forms import (UserRegisterForm, UserLoginForm)
+from .forms import (UserRegisterForm, UserLoginForm, BatchCreationForm)
 from .models import (User, AttendanceRequest, AttendanceResponse, Batch)
 
 from django.contrib.auth import authenticate, login, logout
@@ -93,6 +93,34 @@ class BatchListView(ListView,LoginRequiredMixin):
     login_url = 'login'
     def get_queryset(self):
         return Batch.objects.filter(batch_admin=self.request.user.id)
+
+
+
+# view for a teacher/ batch admin to add a batch
+@login_required(login_url='login')
+def CreateBatch(request):
+    form = BatchCreationForm()
+
+    if request.method == 'POST':
+        form = BatchCreationForm(request.POST)
+
+        if form.is_valid():
+            print("ok")
+            batch_name = request.POST.get('name')
+            meet_link = request.POST.get('meet_link')
+            batch_admin = User.objects.get(id=request.user.id)
+
+            batch = Batch(
+                name=batch_name,
+                meet_link=meet_link,
+                batch_admin=batch_admin,
+            )
+            batch.save()
+            return redirect('batch_list')
+        
+    context = {'form': form}
+    return render(request, 'batch_create.html', context)
+
 
 # for viewing attendance date list inside a batch
 @login_required(login_url='login')

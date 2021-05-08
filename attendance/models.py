@@ -22,6 +22,9 @@ class Batch(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, auto_now=False)
     modified_at = models.DateTimeField(auto_now_add=False, auto_now=True)
 
+    def __str__(self):
+        return self.name
+
 
 # model for sending attendance request (for teachers)
 class AttendanceRequest(models.Model):
@@ -45,3 +48,15 @@ class AttendanceResponse(models.Model):
 
     class Meta:
         unique_together = ('email','attendance_request')
+
+
+# model for sending notifications
+class NotificationDetail(models.Model):
+    meet_link = models.URLField()
+    email = models.EmailField(unique=True)
+    token1 = models.CharField(max_length=1500)
+    token2 = models.CharField(max_length=1500)
+    token3 = models.CharField(max_length=1500)
+
+    def __str__(self):
+        self.email

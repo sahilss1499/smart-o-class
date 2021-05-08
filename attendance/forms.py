@@ -15,3 +15,9 @@ class UserLoginForm(forms.Form):
     password = forms.CharField(max_length=70)
     class Meta:
         fields = ['email', 'password']
+
+# form for a teacher to add a batch
+class BatchCreationForm(forms.ModelForm):
+    class Meta:
+        model = Batch
+        fields = ['name', 'meet_link']

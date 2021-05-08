@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate, login, logout
 
-from attendance.models import (User, AttendanceRequest, AttendanceResponse, Batch)
+from attendance.models import (User, AttendanceRequest, AttendanceResponse, Batch, NotificationDetail)
 from .serializers import (LoginSerializer, TakeAttendanceSerializer, AttendanceResponseSerializer)
 
 from rest_framework import permissions, status
