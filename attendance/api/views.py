@@ -16,7 +16,8 @@ class LoginView(APIView):
     def post(self, request):
         serializer = LoginSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        user = authenticate(request, username=request.data['email'], password=request.data['password'])
-        login(request, user)
+        # user = authenticate(request, username=request.data['email'], password=request.data['password'])
+        # login(request, user)
 
         return Response(serializer.data, status=status.HTTP_200_OK)
+
