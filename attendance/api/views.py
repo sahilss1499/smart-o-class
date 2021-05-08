@@ -39,9 +39,20 @@ class TakeAttendance(APIView):
         serializer = TakeAttendanceSerializer(data=request.data, partial=True)
 
         if serializer.is_valid():
+            receivers = NotificationDetail.objects.filter(meet_link=request.data['meet_link'])
+            # list of all the token dictionary
+            token_list = []
+            
+            for receiver in receivers:
+                token_list_item = {}
+                token_list_item["token1"]=receiver.token1
+                token_list_item["token2"]=receiver.token2
+                token_list_item["token3"]=receiver.token3
+                token_list.append(token_list_item)
+            
             serializer.save()
 
-            return Response(serializer.data)
+            return Response({"students": token_list}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
