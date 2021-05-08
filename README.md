@@ -11,13 +11,13 @@ A dropbox type utility with user authentication where you can upload documents b
 - Now you are good to go! Finally run `python manage.py runserver` or `python manage.py runserver <hostip>`to run the django server.
 
 ## Routes for Teacher Side website:
-- {base_url} - home/ index page
-- {base_url}/login - Login Page
-- {base_url}/register - Register/ Signup page
-- {base_url}/batches - Will show list of batches that were created by the user(teacher). On clicking a batch link from the list you can view dates on which attendance was recorded. On clicking on a date you can see a list of student's email id with their attendance percentage for that particular date.
+- `{base_url}` - home/ index page
+- `{base_url}/login` - Login Page
+- `{base_url}/register` - Register/ Signup page
+- `{base_url}/batches` - Will show list of batches that were created by the user(teacher). On clicking a batch link from the list you can view dates on which attendance was recorded. On clicking on a date you can see a list of student's email id with their attendance percentage for that particular date.
 
 ## API routes:
-- {base_url}/api/login
-- {base_url}/api/take-attendance
-- {base_url}/api/attendance-response
-- {base_url}/api/subscribe
+- `{base_url}/api/login`
+- `{base_url}/api/take-attendance`
+- `{base_url}/api/attendance-response`
+- `{base_url}/api/subscribe`
