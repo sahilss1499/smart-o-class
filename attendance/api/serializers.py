@@ -1,4 +1,4 @@
-from attendance.models import User
+from attendance.models import (User, AttendanceRequest, AttendanceResponse, Batch)
 
 from django.contrib.auth.models import auth
 
@@ -41,5 +41,11 @@ class LoginSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError({'error':'User does not exists!'})
         
         return {'id': user.id, 'token': token,}
-        
+
         return super().validate(data)
+
+
+class TakeAttendanceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AttendanceRequest
+        fields = ('__all__')
