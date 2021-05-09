@@ -1,5 +1,8 @@
-# Dropbox
-A dropbox type utility with user authentication where you can upload documents by clicking on the upload link.
+# Smart O Class Backend
+Taking and managing attendance in online classes made easy with chrome extensions. This repo contains code for the API endpoints required for the extension. It also contains code for the frontend website where-in user can see the attendance responses (precentage) batch and date wise. 
+
+**Tech Stack-** Django, Django Rest Framework, SQLite3, HTML, CSS
+
 ## Project Setup Guide:
 - Clone the repository
 - After going into the required directory make a vitual environment and activate it.
@@ -26,3 +29,6 @@ A dropbox type utility with user authentication where you can upload documents b
 - [https://github.com/ApoorvaRajBhadani/smartoclass-host](https://github.com/ApoorvaRajBhadani/smartoclass-host)
 - [https://github.com/ApoorvaRajBhadani/smartoclass-attendee](https://github.com/ApoorvaRajBhadani/smartoclass-attendee)
 - [https://github.com/ApoorvaRajBhadani/smartoclass-pushserver](https://github.com/ApoorvaRajBhadani/smartoclass-pushserver)
+
+
+**Note-** For complete demo of the project refer to [link](https://www.youtube.com/watch?v=74c9yu5rTWc)
