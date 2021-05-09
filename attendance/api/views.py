@@ -64,7 +64,7 @@ class TakeAttendance(APIView):
                 'students': token_list
             }
 
-            r = requests.post(notification_sender_url,headers=headers,data=body)
+            r = requests.post(notification_sender_url,headers=headers,data=json.dumps(body))
 
             serializer.save()
 
