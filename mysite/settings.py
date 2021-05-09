@@ -28,6 +28,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['192.168.137.67','192.168.29.196', 'localhost', '127.0.0.1']
 
+notification_sender_url = 'http://localhost:3000/trigger'
+
 
 # Application definition
 

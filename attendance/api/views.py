@@ -9,6 +9,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.generics import ListAPIView
 
+from mysite.settings import notification_sender_url
+
 from django.utils import timezone
 import datetime
 
@@ -62,7 +64,7 @@ class TakeAttendance(APIView):
                 "students": token_list
             }
 
-            r = requests.post('http://localhost:3000/trigger',headers=headers,data=body)
+            r = requests.post(notification_sender_url,headers=headers,data=body)
 
             serializer.save()
 
