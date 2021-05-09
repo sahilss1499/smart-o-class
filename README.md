@@ -21,3 +21,8 @@ A dropbox type utility with user authentication where you can upload documents b
 - `{base_url}/api/take-attendance`
 - `{base_url}/api/attendance-response`
 - `{base_url}/api/subscribe`
+
+### Links to other parts of the project
+- [https://github.com/ApoorvaRajBhadani/smartoclass-host](https://github.com/ApoorvaRajBhadani/smartoclass-host)
+- [https://github.com/ApoorvaRajBhadani/smartoclass-attendee](https://github.com/ApoorvaRajBhadani/smartoclass-attendee)
+- [https://github.com/ApoorvaRajBhadani/smartoclass-pushserver](https://github.com/ApoorvaRajBhadani/smartoclass-pushserver)
